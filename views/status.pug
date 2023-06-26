@@ -1,0 +1,18 @@
+html
+  head
+    style 
+      include ./style.css
+    title="Trollslottet akkurat nå"
+  body
+  table
+    tr
+      th Måling 
+      th Value
+      th Sist oppdatert 
+    each value, name in data
+      tr
+        td=name
+        td=value
+        td TBA
+
+  img(src="https://www.yr.no/nb/innhold/1-1802/meteogram.svg")

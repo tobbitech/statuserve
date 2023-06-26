@@ -68,7 +68,7 @@ const client = mqtt.connect(connectUrl, {
   })
 
 
-// public_dir = path.join(__dirname, 'public')
+public_dir = path.join(__dirname, 'public')
 
 var SERVER_PORT = 1279
 
@@ -77,7 +77,14 @@ var SERVER_PORT = 1279
 // --- Express init ----
 
 const app = express();
-// app.use(express.static( path.join(__dirname, '/public')));
+app.use(express.static( path.join(__dirname, '/public')));
+app.set('view engine', 'pug')
+
+app.get('/pugtest', (req, res) => {
+    res.render('pugtest', { title: 'Hey', message: 'Hello there!' })
+  });
+
+
 
 app.get('/time', (req, res, next) => {
     // date = strftime('%Y-%m-%ST%H:%M:%SZ', new Date(Date.UTC()));
@@ -90,14 +97,17 @@ app.get('/time', (req, res, next) => {
 
 app.get('/status', (req, res, next) => {
     console.log("Shows some values from MQTT")
+    var data = {}
     for (const [topic, value] of Object.entries(values_from_mqtt)) {
         var name = MQTT_TOPICS[topic]
         var unit = units[topic]
         var message = `${name}: ${value} ${unit}`
-        res.write(`${message}\n`);
+        data[name] = `${value} ${unit}`
+        // res.write(`${message}\n`);
         console.log(`\t${message}`); 
     }
-    return res.end()
+    // return res.end()
+    res.render('status', { "data": data})
 });
 
 
