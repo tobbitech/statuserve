@@ -1,15 +1,20 @@
+body {
+  background-color: #1b2425;
+}
+
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 500px;
   }
   
   td, th {
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     padding: 8px;
   }
   
-  tr:nth-child(even){background-color: #f2f2f2;}
+  tr:nth-child(even){background-color: #adafc4;}
+  tr:nth-child(odd){background-color: #989aac;}
   
   tr:hover {background-color: #ddd;}
   
@@ -17,7 +22,7 @@ table {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #2e4eb8;
     color: white;
   }
 
