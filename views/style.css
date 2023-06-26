@@ -1,3 +1,12 @@
+#fullscreen {
+        height: 100vh;
+        width: 100vw;
+    border: 1px solid black;
+    background-image:url(http://placehold.it/224x400);
+    background-repeat: no-repeat;
+    background-position: center top;
+    }
+
 body {
   background-color: #1b2425;
 }
